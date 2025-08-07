@@ -12,13 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+     
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' 
 
-      - name: list directories
-        run: pwd
+      - name: Install dependencies
+        run: npm install
 
-      - name: list files
-        run: ls -al
-
-      - name: Print hello
-        run: echo "🎉 Hello from GitHub Actions!"
+      - name: Run tests
+        run: npm test
